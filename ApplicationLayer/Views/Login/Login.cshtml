@@ -1,0 +1,71 @@
+﻿@model DataLayer.Owner
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<p>
+    <div class="dot">
+
+        <strong>@Html.ActionLink("Advertisement", "Index", "Advertisement")</strong>
+    </div>
+
+    </p>
+<h2>Login</h2>
+@using (Html.BeginForm())
+{
+    <b> Login As:</b> @Html.RadioButton("loginBy", "owner")<text>Owner</text>
+        @Html.RadioButton("loginBy", "renter")<text>Renter</text>
+        @*@Html.RadioButton("serachBy","all",true)<text>View All</text>*@
+    <fieldset>
+
+
+        
+        @*@Html.ValidationSummary(true)
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>
+        }*@
+        <table>
+            <tr>
+                <td>@Html.LabelFor(a => a.Username)</td>
+                <td>@Html.TextBoxFor(a => a.Username)</td>
+                <td>@Html.ValidationMessageFor(a => a.Username)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(a => a.Password)
+                </td>
+                <td>
+                    @Html.PasswordFor(a => a.Password)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(a => a.Password)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Login" />
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </fieldset>
+    @*<div>
+            <fieldset>
+                <legend>Login Form</legend>
+                <div class="editor-label">@Html.LabelFor(a=> a.Username)</div>
+                <div class="editor-field">@Html.TextBoxFor(a=> a.Username)
+                    @Html.ValidationMessageFor(a => a.Username)
+                </div>
+                <div class="editor-label">@Html.LabelFor(a=> a.Password)</div>
+                <div  class="editor-field">@Html.PasswordFor(a=> a.Password)
+                    @Html.ValidationMessageFor(a=> a.Password)
+                </div>
+                <input type="submit" value="Log In" />
+            </fieldset>
+        </div>*@
+}

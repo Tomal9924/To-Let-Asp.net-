@@ -1,0 +1,13 @@
+﻿@model DataLayer.Owner
+
+@{
+    ViewBag.Title = "UserDashBoard";
+}
+
+< fieldset >
+    < legend > User DashBoard < /legend>
+
+@if(Session["Email"] != null) { < text >
+    Welcome @Session["Name"].ToString() < /text>
+    } < /fieldset> 
+

@@ -1,0 +1,108 @@
+﻿@model IEnumerable<DataLayer.Owner>
+
+@{
+    ViewBag.Title = "Advertisements";
+    //AjaxOptions options = new AjaxOptions
+    //{
+    //    UpdateTargetId = "searchResult",
+    //    Confirm = "Are you sure to start search?",
+    //    InsertionMode = InsertionMode.Replace,
+    //    LoadingElementId = "divLoading"
+    //};
+}
+    <html>
+<head>
+    <style>
+        .dot {
+            color:red;
+            float:right;
+            display:block;
+        }
+
+    </style>
+
+</head>
+</html>
+<h2 style="color:green;"><b>Advertisement Page</b></h2>
+                      <strong style="color:green;"> @Html.ActionLink("OwnerRegistration", "Create", "Owner")</strong> ||
+                      <strong style="color:green;"> @Html.ActionLink("RenterRegistration", "Create", "Renter")</strong>||
+                      <strong style="color:green;"> @Html.ActionLink("View All", "")</strong>
+                      
+    <div class="dot">
+        <strong>@Html.ActionLink("Login", "Login", "Login")</strong>
+        <strong>@*@Html.ActionLink("Logout", "Login", "Login")*@</strong>
+        
+        
+</div>
+<p>
+   @using (Html.BeginForm("Index","Advertisement",FormMethod.Post)) { 
+    <b>Search By:</b> @Html.RadioButton("serachBy","name")<text>Name</text>
+                     @Html.RadioButton("serachBy","area")<text>Area</text>
+                     @*@Html.RadioButton("serachBy","all",true)<text>View All</text>*@
+       <br>
+       @Html.TextBox("search")<input type="submit" value="Search"/>
+       
+       
+   }
+
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        @*<th>
+        @Html.DisplayNameFor(model => model.Email)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Username)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Password)
+    </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Area)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+       @* <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Username)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Password)
+    </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Area)
+        </td>
+        <td>
+            
+            @Html.ActionLink("Rent Flat", "Details", "Advertisement")
+          
+            
+        </td>
+    </tr>
+}
+
+</table>
